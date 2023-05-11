@@ -15,5 +15,19 @@ echo 'Finished cloning'
 # tests
 
 cd student-submission
-
-$1 = `find -name "ListExamples.java"`
+file = "ListExamples.java"
+    if [[ -f $file ]]
+    then
+        cp $file `grading-area`
+        cd ../grading-area
+        javac $file
+        java ${file%.java}
+        if [[ $? > 0 ]]
+        then
+            echo "Error within $file"
+        else
+            echo "pass"
+        fi
+    else
+        echo "None"
+    fi

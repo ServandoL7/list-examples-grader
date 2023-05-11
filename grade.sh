@@ -16,5 +16,4 @@ echo 'Finished cloning'
 
 cd student-submission
 
-if (-f "ListExamples.java")
-then 
+$1 = `find -name "ListExamples.java"`

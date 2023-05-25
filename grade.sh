@@ -30,6 +30,6 @@ javac -cp $CPATH *.java
 # for mac/linux
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > output.txt
 
-grade_line="$(grep 'Tests run: ' output.txt | grep -o -E '[0-9]+')"
+grade_line="$(grep 'Tests run: ' output.txt | grep -o -E '[0-9]+')" 
 # grade_line="$(grep 'FAILURES!!!')"
 echo $grade_line

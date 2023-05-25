@@ -22,7 +22,13 @@ fi
 cp -r student-submission/ListExamples.java TestListExamples.java lib grading-area/
 cd grading-area
 
-javac -cp $CPATH *.java TestListExamples > output.txt
+javac -cp $CPATH *.java
+# Change $RPATH to $CPATH if not runninf on windows 
+
+# for windows
+#java -cp $RPATH org.junit.runner.JUnitCore TestListExamples > output.txt
+# for mac/linux
+java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > output.txt
 
 grade_line="$(grep 'Tests run: ' output.txt | grep -o -E '[0-9]+')"
 # grade_line="$(grep 'FAILURES!!!')"

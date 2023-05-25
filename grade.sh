@@ -19,10 +19,11 @@ fi
 # Then, add here code to compile and run, and do any post-processing of the
 # tests
 
-cp -r student-submission/ListExamples.java ListExamplesTests.java lib grading-area
+cp -r student-submission/ListExamples.java TestListExamples.java lib grading-area/
 cd grading-area
 
-javac -cp $CPATH *.java ListExamplesTests > output.txt
+javac -cp $CPATH *.java TestListExamples > output.txt
 
-grade_line = "$(grep 'Tests run: ' output.txt | grep -o -E '[0-9]+')"
+grade_line="$(grep 'Tests run: ' output.txt | grep -o -E '[0-9]+')"
+# grade_line="$(grep 'FAILURES!!!')"
 echo $grade_line
